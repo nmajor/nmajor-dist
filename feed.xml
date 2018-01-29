@@ -5,17 +5,21 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 29 Jan 2018 23:02:25 +0000</pubDate>
-    <lastBuildDate>Mon, 29 Jan 2018 23:02:25 +0000</lastBuildDate>
+    <pubDate>Mon, 29 Jan 2018 23:10:24 +0000</pubDate>
+    <lastBuildDate>Mon, 29 Jan 2018 23:10:24 +0000</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
         <title>Serverless Back-End for React - Your Introduction to Serverless Architecture</title>
-        <description>&lt;p&gt;What’s the opposite of the boy who cried wolf? The boy who cried that something amazing was coming? The boy who cried free pizza?&lt;/p&gt;
+        <description>&lt;p&gt;I believe Serverless is the next big thing in web development. I discuss the what, why, and how of Serverless. Then I show you how to build a simple backend for a react app. You’ll be surprised how easy it is.&lt;/p&gt;
+
+&lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;What’s the opposite of the boy who cried wolf? The boy who cried that something amazing was coming? The boy who cried free pizza?&lt;/p&gt;
 
 &lt;p&gt;Serverless architecture might be the free pizza equivalent of web technologies in terms of how amazing it is. It’s still very new tech, but the more I learn about it and use it, the more I am convinced that it’s the future of web development.&lt;/p&gt;
 
-&lt;p class=&quot;lead&quot;&gt;In this post:&lt;/p&gt;
+&lt;p&gt;In this post:&lt;/p&gt;
 
 &lt;p&gt;I’m going to go over what serverless architecture is and how using it differs from working with a traditional web framework. I’ll also go over the benefits of serverless.&lt;/p&gt;
 
