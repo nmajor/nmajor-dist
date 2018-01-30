@@ -5,13 +5,13 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 30 Jan 2018 00:47:14 +0000</pubDate>
-    <lastBuildDate>Tue, 30 Jan 2018 00:47:14 +0000</lastBuildDate>
+    <pubDate>Tue, 30 Jan 2018 00:47:42 +0000</pubDate>
+    <lastBuildDate>Tue, 30 Jan 2018 00:47:42 +0000</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
         <title>Serverless Back-End for React - Your Introduction to Serverless Architecture</title>
-        <description>&lt;p&gt;I believe Serverless is the next big thing in web development. I discuss the what, why, and how of Serverless. Then I show you how to build a simple backend for a react app. You’ll be surprised how easy it is. hey&lt;/p&gt;
+        <description>&lt;p&gt;I believe Serverless is the next big thing in web development. I discuss the what, why, and how of Serverless. Then I show you how to build a simple backend for a react app. You’ll be surprised how easy it is.&lt;/p&gt;
 
 &lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
