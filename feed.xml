@@ -5,15 +5,15 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 16 Feb 2018 20:09:30 +0000</pubDate>
-    <lastBuildDate>Fri, 16 Feb 2018 20:09:30 +0000</lastBuildDate>
+    <pubDate>Fri, 16 Feb 2018 20:12:40 +0000</pubDate>
+    <lastBuildDate>Fri, 16 Feb 2018 20:12:40 +0000</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
         <title>Express.js With ES6 and Babel</title>
         <description>&lt;p&gt;Express.js doesn’t come with es6 out of the box. But its actually not that hard to add.&lt;/p&gt;
 
-&lt;p&gt;This is the best way I have found to add ES6 support to an express project. I’m going to go over how to easily add ES6 support to your project using the &lt;a href=&quot;https://www.npmjs.com/package/babel-cli&quot; title=&quot;babel-cli&quot;&gt;babel-cli&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I’m going to go over how to easily add ES6 support to your project using the &lt;a href=&quot;https://www.npmjs.com/package/babel-cli&quot; title=&quot;babel-cli&quot;&gt;babel-cli&lt;/a&gt;, as well as show you some of the things you need to do so your app will be ready for production later.&lt;/p&gt;
 
 &lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
