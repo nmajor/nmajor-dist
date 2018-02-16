@@ -5,9 +5,179 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Feb 2018 17:45:38 +0000</pubDate>
-    <lastBuildDate>Wed, 14 Feb 2018 17:45:38 +0000</lastBuildDate>
+    <pubDate>Fri, 16 Feb 2018 20:07:25 +0000</pubDate>
+    <lastBuildDate>Fri, 16 Feb 2018 20:07:25 +0000</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
+    
+      <item>
+        <title>Express.js With ES6 and Babel</title>
+        <description>&lt;p&gt;Express.js doesn’t come with es6 out of the box. But its actually not that hard to add.&lt;/p&gt;
+
+&lt;p&gt;This is the best way I have found to add ES6 support to an express project. I’m going to go over how to easily add ES6 support to your project using the &lt;a href=&quot;https://www.npmjs.com/package/babel-cli&quot; title=&quot;babel-cli&quot;&gt;babel-cli&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;babel-cli&lt;/code&gt; gives us a command line tool called &lt;code class=&quot;highlighter-rouge&quot;&gt;babel-node&lt;/code&gt; that wraps around node and converts our ES6 code to basic javascript that node can read.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;However it is not recommended to use babel-node in production&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;new-express-app&quot;&gt;New Express App&lt;/h3&gt;
+
+&lt;p&gt;First lets use the &lt;a href=&quot;http://expressjs.com/en/starter/generator.html&quot;&gt;express-generator&lt;/a&gt; to make a new Express.js app.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;$ express --view pug --css sass new-app
+$ cd new-app
+$ npm install
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This generates a new express app in a new folder called new-app. And as you can see, I’ve told express to use sass for css and pug for the html templating.&lt;/p&gt;
+
+&lt;h3 id=&quot;rearrange-files&quot;&gt;Rearrange Files&lt;/h3&gt;
+
+&lt;p&gt;We are going to need to rearrange things a bit. This is because of the production build. We want all the javascript files isolated in a subfolder of our app because later we are going to tell babel to compile all the files and things get really messy if all our code is in at the same level as our dot files, node_modules folder, etc…&lt;/p&gt;
+
+&lt;p&gt;So lets make a new folder called &lt;code class=&quot;highlighter-rouge&quot;&gt;app&lt;/code&gt; and move all our express stuff into it.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;$ mkdir app
+$ mv bin public routes views app.js app/
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;install-babel&quot;&gt;Install Babel&lt;/h3&gt;
+
+&lt;p&gt;First we need to add 2 babel packages to our apps dev-dependencies.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;$ npm install babel-cli --save-dev
+$ npm install babel-preset-env --save-dev
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;babel-preset-env&lt;/a&gt; by default behaves like &lt;a href=&quot;&quot;&gt;babel-preset-latest&lt;/a&gt;. Basically it includes all the new features of ECMAScript that are standardized each year. But it also allows you to specify specific environments to build for such as specific browsers you want to support.&lt;/p&gt;
+
+&lt;p&gt;Next we need to add the babel configuration file &lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt; to our app folder. Make it look like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This just tells babel to use &lt;a href=&quot;&quot;&gt;babel-preset-env&lt;/a&gt; that we just installed but take a look as some of the other configuration settings you can specify &lt;a href=&quot;https://babeljs.io/docs/usage/babelrc/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;try-it-out&quot;&gt;Try it Out&lt;/h3&gt;
+
+&lt;p&gt;To try it out lets open our &lt;code class=&quot;highlighter-rouge&quot;&gt;app.js&lt;/code&gt; file and replace this line&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;var express = require('express');
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;with this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;import express from 'express';
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And then we run express with babel with this command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;$ babel-node app/bin/www
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It works!&lt;/p&gt;
+
+&lt;p&gt;And you will notice that if you just run &lt;code class=&quot;highlighter-rouge&quot;&gt;node app/bin/www&lt;/code&gt; you get an error which is expected.&lt;/p&gt;
+
+&lt;p&gt;Now lets add a npm script to make running this easier. Open up your &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; file and lets add a new line in the scripts section so it looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;...
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node ./bin/www&quot;,
+    &quot;start:dev&quot;: &quot;babel-node ./app/bin/www&quot;
+  }
+...
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now we can run our babelized app with the command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;npm run start:dev
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You might be asking, “Why don’t we just use the existing start script”. We need to save that for production because many production environments use the start script to run the app, but obviously we need to change it since we know &lt;code class=&quot;highlighter-rouge&quot;&gt;node ./bin/www&lt;/code&gt; doesn’t work.&lt;/p&gt;
+
+&lt;h3 id=&quot;preparing-for-production&quot;&gt;Preparing for Production&lt;/h3&gt;
+
+&lt;p&gt;So to prepare our app for production we need a build step that will take our ES6 code and generate node-friendly ES5 code in a file somewhere that node can run.&lt;/p&gt;
+
+&lt;p&gt;To do this I like to another npm script:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;...
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node ./bin/www&quot;,
+    &quot;start:dev&quot;: &quot;babel-node ./app/bin/www&quot;,
+    &quot;build&quot;: &quot;rm -rf ./build &amp;amp;&amp;amp; mkdir build &amp;amp;&amp;amp; babel --out-dir ./build --source-maps --copy-files ./app&quot;
+  }
+...
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see this build script removes and recreates any existing &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; folder, and then runs the command &lt;code class=&quot;highlighter-rouge&quot;&gt;babel --out-dir ./build --source-maps --copy-files ./app&lt;/code&gt; which compiles all the javascript files and copies any other files  into the &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; folder. Checkout &lt;a href=&quot;https://babeljs.io/docs/usage/cli/&quot;&gt;this page&lt;/a&gt; for more info on how the babel command works.&lt;/p&gt;
+
+&lt;p&gt;You may want to add the &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; folder to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then the last thing to do is to change the start script to look like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&quot;start&quot;: &quot;node ./app/bin/www&quot;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And we are good to go.&lt;/p&gt;
+
+&lt;p&gt;Just make sure you run &lt;code class=&quot;highlighter-rouge&quot;&gt;npm run build&lt;/code&gt; as part of any deployment into production.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
+        <link>/posts/express-js-with-es6-and-babel</link>
+        <guid isPermaLink="true">/posts/express-js-with-es6-and-babel</guid>
+        
+        <category>express</category>
+        
+        <category>node</category>
+        
+        <category>babel</category>
+        
+        <category>es6</category>
+        
+        
+      </item>
     
       <item>
         <title>Serverless Back-End for React - Your Introduction to Serverless Architecture</title>
