@@ -5,13 +5,17 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Mar 2018 15:11:02 +0000</pubDate>
-    <lastBuildDate>Wed, 21 Mar 2018 15:11:02 +0000</lastBuildDate>
+    <pubDate>Wed, 21 Mar 2018 15:18:45 +0000</pubDate>
+    <lastBuildDate>Wed, 21 Mar 2018 15:18:45 +0000</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
         <title>Get a Facebook Page Access Token That Never Expires</title>
-        <description>&lt;p&gt;First we should talk about some definitions:&lt;/p&gt;
+        <description>&lt;p&gt;With the facebook API, page tokens can often be used in place of user tokens. This is very useful because if you are doing something with a business, its not ideal to have to use your own user token for everything. However, if you don’t want to have to recreate a new token all the time, you have to go through the process of getting a long-lived page access token.&lt;/p&gt;
+
+&lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;First we should talk about some definitions:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;short-lived user access token&lt;/strong&gt;: This is the regular user_access_token, and it typically lasts about 2 hours.&lt;/p&gt;
 

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>Get a Facebook Page Access Token That Never Expires &#9642; NMajor Blog</title>
 <!--
-<meta name="description" content="First we should talk about some definitions: short-lived user access token: This is the regular user_access_token, and it typically lasts about 2 hours. long-lived user access token: This user access token last about 60 days and you get it by extending a short-lived user access token page access token: These...">
+<meta name="description" content="With the facebook API, page tokens can often be used in place of user tokens. This is very useful because if you are doing something with a business, its not ideal to have to use your own user token for everything. However, if you don’t want to have to recreate...">
 -->
 <meta name="description" content="A blog filled with adventures in tech">
 <meta name="keywords" content="facebook">
@@ -100,7 +100,9 @@
           <a href="/posts/get-a-facebook-page-access-token-that-never-expires" title="Get a Facebook Page Access Token That Never Expires"><img class="hero-image" src="/uploads/2018/03/21/So, let's take it to the streets and celebrate our freedom!.png" /></a>
    </div>
  </div>
-   <p>First we should talk about some definitions:
+   <p>With the facebook API, page tokens can often be used in place of user tokens. This is very useful because if you are doing something with a business, its not ideal to have to use your own user token for everything. However, if you don’t want to have to recreate a new token all the time, you have to go through the process of getting a long-lived page access token.
+<p class="lead">
+<p>First we should talk about some definitions:
 <p><strong>short-lived user access token</strong>: This is the regular user_access_token, and it typically lasts about 2 hours.
 <p><strong>long-lived user access token</strong>: This user access token last about 60 days and you get it by extending a short-lived user access token
 <p><strong>page access token</strong>: These are similar to user access tokens and are created using a user access token.
