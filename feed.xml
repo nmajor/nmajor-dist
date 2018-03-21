@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Mar 2018 15:18:45 +0000</pubDate>
-    <lastBuildDate>Wed, 21 Mar 2018 15:18:45 +0000</lastBuildDate>
+    <pubDate>Wed, 21 Mar 2018 16:05:46 +0000</pubDate>
+    <lastBuildDate>Wed, 21 Mar 2018 16:05:46 +0000</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -15,7 +15,9 @@
 
 &lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;First we should talk about some definitions:&lt;/p&gt;
+&lt;p&gt;First you have to make sure that your user has permissions to access both the Facebook page and the Facebook groups, and make sure that the Facebook groups are linked to the Facebook page.&lt;/p&gt;
+
+&lt;p&gt;Now lets talk about some definitions:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;short-lived user access token&lt;/strong&gt;: This is the regular user_access_token, and it typically lasts about 2 hours.&lt;/p&gt;
 
