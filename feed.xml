@@ -5,26 +5,17 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 Jul 2018 18:24:06 +0100</pubDate>
-    <lastBuildDate>Mon, 16 Jul 2018 18:24:06 +0100</lastBuildDate>
+    <pubDate>Mon, 16 Jul 2018 18:26:26 +0100</pubDate>
+    <lastBuildDate>Mon, 16 Jul 2018 18:26:26 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
         <title>React CSS - Styled Components</title>
-        <description>&lt;p&gt;In this article:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Why I prefer Styled Components&lt;/li&gt;
-  &lt;li&gt;Basic installation and examples of Styled Components&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I don’t really go into some of the other options for CSS with React, so for a nice outline of some of the other approaches check [this article](&lt;a href=&quot;https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-676f1284b945&quot; title=&quot;https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-676f1284b945&quot;&gt;https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-676f1284b945&lt;/a&gt;) out.&lt;/p&gt;
-
-&lt;p&gt;You can also see the Official Documentation for Styled Components [here](&lt;a href=&quot;https://www.styled-components.com/&quot; title=&quot;https://www.styled-components.com/&quot;&gt;https://www.styled-components.com/&lt;/a&gt;).&lt;/p&gt;
-
-&lt;h2 id=&quot;why-i-prefer-styled-components&quot;&gt;Why I prefer Styled Components&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;why-i-prefer-styled-components&quot;&gt;Why I prefer Styled Components&lt;/h2&gt;
 
 &lt;p&gt;I prefer Styled Components because I feel like it is more inline with the core component philosophy of react. React is all about creating reusable components, and really pushed the idea of bundling the templating (HTML) and behavior (JS) together into components. So it always felt a bit wonky to me to still put my CSS in a separate file and connect my styling using regular CSS &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; targeting.&lt;/p&gt;
+
+&lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;Styled Components allow us to bundle the templating (HTML), behavior (JS), and styling (CSS) all together. And similar to how JSX lets us write HTML in with our Javascript, Styled Components let us write classic CSS, but it has many classic JS ways for us to manage our styling logic.&lt;/p&gt;
 
@@ -232,6 +223,10 @@ const StyledLink = styled(Link)`
 &lt;p&gt;Styled Components, allow us to really simplify our display logic while still being able to customize our styling in complex ways. Oh yeah, it also works with React Native.&lt;/p&gt;
 
 &lt;p&gt;So give Styled Components a try!&lt;/p&gt;
+
+&lt;p&gt;I don’t really go into some of the other options for CSS with React, so for a nice outline of some of the other approaches check [this article](&lt;a href=&quot;https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-676f1284b945&quot; title=&quot;https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-676f1284b945&quot;&gt;https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-676f1284b945&lt;/a&gt;) out.&lt;/p&gt;
+
+&lt;p&gt;You can also see the Official Documentation for Styled Components [here](&lt;a href=&quot;https://www.styled-components.com/&quot; title=&quot;https://www.styled-components.com/&quot;&gt;https://www.styled-components.com/&lt;/a&gt;).&lt;/p&gt;
 </description>
         <pubDate>Mon, 16 Jul 2018 01:00:00 +0100</pubDate>
         <link>/posts/react-css-styled-components</link>
