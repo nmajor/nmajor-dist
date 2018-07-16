@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 Jul 2018 18:26:26 +0100</pubDate>
-    <lastBuildDate>Mon, 16 Jul 2018 18:26:26 +0100</lastBuildDate>
+    <pubDate>Mon, 16 Jul 2018 18:26:41 +0100</pubDate>
+    <lastBuildDate>Mon, 16 Jul 2018 18:26:41 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -509,6 +509,8 @@ $ npm install babel-preset-env --save-dev
       <item>
         <title>Deploying Node.js on Azure App Services</title>
         <description>&lt;p&gt;I know, I know, I know, Microsoft is not the company you think of when its time to figure out where to host your Node.js app, but Azure has a surprisingly robust suite of services now. And deploying to &lt;a href=&quot;https://azure.microsoft.com/en-us/services/app-service/&quot; title=&quot;Azure App Service&quot;&gt;Azure App Services&lt;/a&gt; was easier than I expected.&lt;/p&gt;
+
+&lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;In this post I’m going to go over how to deploy a Node.js app to Azure App Services and also mention some of the things I learned from working with Azure.&lt;/p&gt;
 
