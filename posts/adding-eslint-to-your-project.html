@@ -4,21 +4,24 @@
        <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<title>NMajor Blog </title>
-<!---->
+<title>Adding ESLint to Your Project with a Git Hook &#9642; NMajor Blog</title>
+<!--
+<meta name="description" content="Installation First install the package eslint: 1yarn add eslint --only=dev Then initialize init and it will walk you through a typical setup: 1yarn eslint --init These are the options I selected. I like to start with the AirBnB template: 1 2 3 4? How would you like to configure ESLint?...">
+-->
 <meta name="description" content="A blog filled with adventures in tech">
-<link rel="canonical" href="/">
+<meta name="keywords" content="javascript, git">
+<link rel="canonical" href="/posts/adding-eslint-to-your-project">
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Blog" />
+<meta name="twitter:title" content="Adding ESLint to Your Project with a Git Hook" />
 <meta name="twitter:description" content="A blog filled with adventures in tech" />
 <meta name="twitter:image" content="" />
 <meta name="author" content="">
 <link rel="author" href="">
 <meta property="og:locale" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog">
+<meta property="og:title" content="Adding ESLint to Your Project with a Git Hook">
 <meta property="og:description" content="A blog filled with adventures in tech">
-<meta property="og:url" content="/">
+<meta property="og:url" content="/posts/adding-eslint-to-your-project">
 <meta property="og:site_name" content="NMajor Blog">
 <link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -80,26 +83,25 @@
      </ul>
    </div>
 </header>
-<article class="blog">
- <div class="
-    post-title-container-nohero
+<article class="post">
+ <div class="post-title-container
+  no-hero-margin
   ">
+    <!--Post hero image source-->
+   <div class="heading-container ">
      <h1>
-          <a href="/posts/adding-eslint-to-your-project" title="Adding ESLint to Your Project with a Git Hook">Adding ESLint to Your Project with a Git Hook</a>
+          Adding ESLint to Your Project with a Git Hook
      </h1>
-     <div class="
-        post-meta-nohero
-      ">
-     </div>
+      <span class="published-at">Published Jul 17, 2018</span>
+      &#9642;
+      <span class="post-tags">
+            <a href="/tag/javascript">#javascript</a>
+            <a href="/tag/git">#git</a>
+      </span>
+          <a href="/posts/adding-eslint-to-your-project" title="Adding ESLint to Your Project with a Git Hook"><img class="hero-image" src="/uploads/2018/07/17/Beautiful Code!.png" /></a>
+   </div>
  </div>
-  <span class="published-at">Published Jul 17, 2018</span>
-  &#9642;
-  <span class="post-tags">
-        <a href="/tag/javascript">#javascript</a>
-        <a href="/tag/git">#git</a>
-  </span>
-      <a href="/posts/adding-eslint-to-your-project" title="Adding ESLint to Your Project with a Git Hook"><img class="hero-image" src="/uploads/2018/07/17/Beautiful Code!.png" /></a>
-     <h2 id="installation">Installation</h2>
+   <h2 id="installation">Installation</h2>
 <p>First install the package eslint:
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>yarn add eslint --only=dev
 </pre></table>
@@ -277,124 +279,19 @@ done
 </div>
 <p>This code is from [this article](<a href="https://medium.com/@shettyrahul8june/how-to-run-eslint-using-pre-commit-hook-25984fbce17e" title="https://medium.com/@shettyrahul8june/how-to-run-eslint-using-pre-commit-hook-25984fbce17e">https://medium.com/@shettyrahul8june/how-to-run-eslint-using-pre-commit-hook-25984fbce17e</a>) which references [this gist](<a href="https://gist.github.com/rashtay/328da46a99a9d7c746636df1cf769675" title="https://gist.github.com/rashtay/328da46a99a9d7c746636df1cf769675">https://gist.github.com/rashtay/328da46a99a9d7c746636df1cf769675</a>).
 <p>Now anytime someone commits, any javascript files included in the commit will have to pass the lint test!
-       <div class="readmore">
-          <a href="/posts/adding-eslint-to-your-project" role="button">Read more</a>
-       <div>
 </article>
- <hr>
-<article class="blog">
- <div class="
-    post-title-container-nohero
-  ">
-     <h1>
-          <a href="/posts/react-css-styled-components" title="React CSS - Styled Components">React CSS - Styled Components</a>
-     </h1>
-     <div class="
-        post-meta-nohero
-      ">
-     </div>
- </div>
-  <span class="published-at">Published Jul 16, 2018</span>
-  &#9642;
-  <span class="post-tags">
-        <a href="/tag/react">#react</a>
-        <a href="/tag/css">#css</a>
-  </span>
-      <a href="/posts/react-css-styled-components" title="React CSS - Styled Components"><img class="hero-image" src="/uploads/2018/07/16/jungle & river trails.png" /></a>
-     <h2 id="why-i-prefer-styled-components">Why I prefer Styled Components</h2>
-<p>I prefer Styled Components because I feel like it is more inline with the core component philosophy of react. React is all about creating reusable components, and really pushed the idea of bundling the templating (HTML) and behavior (JS) together into components. So it always felt a bit wonky to me to still put my CSS in a separate file and connect my styling using regular CSS <code class="highlighter-rouge">class</code> and <code class="highlighter-rouge">id</code> targeting.
-       <div class="readmore">
-          <a href="/posts/react-css-styled-components" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
- <div class="
-    post-title-container-nohero
-  ">
-     <h1>
-          <a href="/posts/get-a-facebook-page-access-token-that-never-expires" title="Get a Facebook Page Access Token That Never Expires">Get a Facebook Page Access Token That Never Expires</a>
-     </h1>
-     <div class="
-        post-meta-nohero
-      ">
-     </div>
- </div>
-  <span class="published-at">Published Mar 21, 2018</span>
-  &#9642;
-  <span class="post-tags">
-        <a href="/tag/facebook">#facebook</a>
-  </span>
-      <a href="/posts/get-a-facebook-page-access-token-that-never-expires" title="Get a Facebook Page Access Token That Never Expires"><img class="hero-image" src="/uploads/2018/03/21/So, let's take it to the streets and celebrate our freedom!.png" /></a>
-     <p>With the facebook API, page tokens can often be used in place of user tokens. This is very useful because if you are doing something with a business, its not ideal to have to use your own user token for everything. However, if you don’t want to have to recreate a new token all the time, you have to go through the process of getting a long-lived page access token.
-       <div class="readmore">
-          <a href="/posts/get-a-facebook-page-access-token-that-never-expires" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
- <div class="
-    post-title-container-nohero
-  ">
-     <h1>
-          <a href="/posts/express-js-with-es6-and-babel" title="Express.js With ES6 and Babel">Express.js With ES6 and Babel</a>
-     </h1>
-     <div class="
-        post-meta-nohero
-      ">
-     </div>
- </div>
-  <span class="published-at">Published Feb 16, 2018</span>
-  &#9642;
-  <span class="post-tags">
-        <a href="/tag/express">#express</a>
-        <a href="/tag/node">#node</a>
-        <a href="/tag/babel">#babel</a>
-        <a href="/tag/es6">#es6</a>
-  </span>
-      <a href="/posts/express-js-with-es6-and-babel" title="Express.js With ES6 and Babel"><img class="hero-image" src="/uploads/2018/02/16/Express.js - ES6 - Babel.png" /></a>
-     <p>Express.js doesn’t come with es6 out of the box. But its actually not that hard to add.
-<p>I’m going to go over how to easily add ES6 support to your project using the <a href="https://www.npmjs.com/package/babel-cli" title="babel-cli">babel-cli</a>, as well as show you some of the things you need to do so your app will be ready for production later.
-       <div class="readmore">
-          <a href="/posts/express-js-with-es6-and-babel" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
- <div class="
-    post-title-container-nohero
-  ">
-     <h1>
-          <a href="/posts/deploying-a-node-js-app-on-azure-app-services" title="Deploying Node.js on Azure App Services">Deploying Node.js on Azure App Services</a>
-     </h1>
-     <div class="
-        post-meta-nohero
-      ">
-     </div>
- </div>
-  <span class="published-at">Published Feb 14, 2018</span>
-  &#9642;
-  <span class="post-tags">
-        <a href="/tag/node">#node</a>
-        <a href="/tag/azure">#azure</a>
-        <a href="/tag/production">#production</a>
-  </span>
-      <a href="/posts/deploying-a-node-js-app-on-azure-app-services" title="Deploying Node.js on Azure App Services"><img class="hero-image" src="/uploads/2018/07/16/Deploying.png" /></a>
-     <p>I know, I know, I know, Microsoft is not the company you think of when its time to figure out where to host your Node.js app, but Azure has a surprisingly robust suite of services now. And deploying to <a href="https://azure.microsoft.com/en-us/services/app-service/" title="Azure App Service">Azure App Services</a> was easier than I expected.
-       <div class="readmore">
-          <a href="/posts/deploying-a-node-js-app-on-azure-app-services" role="button">Read more</a>
-       <div>
-</article>
-<nav class="pagination" role="navigation">
-<hr/>
- <ul>
-   <li class="pagination-item-prev" >
-      <span>&laquo; Previous</span>
-   <li class="pagination-item-next" >
-      <a rel="next" href="/page-2/">Next &raquo;</a>
- </ul>
-<hr/>
-</nav>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'nmajor';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
            <footer>
     <span>A blog filled with adventures in tech</span>
     <span>written by Nicholas Major</span>
