@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>Adding ESLint to Your Project with a Git Hook &#9642; NMajor Blog</title>
 <!--
-<meta name="description" content="Installation First install the package eslint: 1yarn add eslint --only=dev Then initialize init and it will walk you through a typical setup: 1yarn eslint --init These are the options I selected. I like to start with the AirBnB template: 1 2 3 4? How would you like to configure ESLint?...">
+<meta name="description" content="Linters can be annoying at first, but I feel like they really help me write better code. Plus they are great for working in teams to make sure everyone is following the same conventions. We’re going to walk through how to setup ESLint and add it to our project using...">
 -->
 <meta name="description" content="A blog filled with adventures in tech">
 <meta name="keywords" content="javascript, git">
@@ -101,7 +101,10 @@
           <a href="/posts/adding-eslint-to-your-project" title="Adding ESLint to Your Project with a Git Hook"><img class="hero-image" src="/uploads/2018/07/17/Beautiful Code!.png" /></a>
    </div>
  </div>
-   <h2 id="installation">Installation</h2>
+   <p>Linters can be annoying at first, but I feel like they really help me write better code. Plus they are great for working in teams to make sure everyone is following the same conventions.
+<p>We’re going to walk through how to setup ESLint and add it to our project using a git pre-commit hook.
+<p class="lead">
+<h2 id="installation">Installation</h2>
 <p>First install the package eslint:
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>yarn add eslint --only=dev
 </pre></table>
