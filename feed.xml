@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 25 Jul 2018 14:01:13 +0100</pubDate>
-    <lastBuildDate>Wed, 25 Jul 2018 14:01:13 +0100</lastBuildDate>
+    <pubDate>Wed, 25 Jul 2018 14:21:40 +0100</pubDate>
+    <lastBuildDate>Wed, 25 Jul 2018 14:21:40 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -17,7 +17,7 @@
 
 &lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;If you are unfamiliar with redux middleware, check out the [documentation here](&lt;a href=&quot;https://redux.js.org/advanced/middleware&quot; title=&quot;https://redux.js.org/advanced/middleware&quot;&gt;https://redux.js.org/advanced/middleware&lt;/a&gt;). The code below is inspired by reading through the source of [this example redux app](&lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot;&gt;https://github.com/erikras/react-redux-universal-hot-example&lt;/a&gt;), specifically [this middleware](&lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot;&gt;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&lt;/a&gt;), so you may also want to check that out as well.&lt;/p&gt;
+&lt;p&gt;If you are unfamiliar with redux middleware, check out the [documentation here](https://redux.js.org/advanced/middleware). The code below is inspired by reading through the source of [this example redux app](&lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot;&gt;https://github.com/erikras/react-redux-universal-hot-example&lt;/a&gt;), specifically [this middleware](&lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot;&gt;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&lt;/a&gt;), so you may also want to check that out as well.&lt;/p&gt;
 
 &lt;h3 id=&quot;typical-redux-actions&quot;&gt;Typical Redux Actions&lt;/h3&gt;
 
