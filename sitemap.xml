@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>/posts/making-redux-middleware-for-websockets/</loc>
+      
+        <lastmod>2018-07-25T01:00:00+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.7</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>/posts/adding-eslint-to-your-project/</loc>
       
         <lastmod>2018-07-17T01:00:00+01:00</lastmod>
@@ -98,7 +113,7 @@
     <url>
       <loc>/about/</loc>
       
-        <lastmod>2018-07-25T13:59:09+01:00</lastmod>
+        <lastmod>2018-07-25T13:59:27+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -113,7 +128,7 @@
     <url>
       <loc>/archive/</loc>
       
-        <lastmod>2018-07-25T13:59:09+01:00</lastmod>
+        <lastmod>2018-07-25T13:59:27+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -130,7 +145,7 @@
     <url>
       <loc>/config-forestryio.yml</loc>
       
-        <lastmod>2018-07-25T13:59:09+01:00</lastmod>
+        <lastmod>2018-07-25T13:59:27+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -147,7 +162,7 @@
     <url>
       <loc>/</loc>
       
-        <lastmod>2018-07-25T13:59:09+01:00</lastmod>
+        <lastmod>2018-07-25T13:59:27+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -183,7 +198,7 @@
     <url>
       <loc>/page-2/</loc>
       
-        <lastmod>2018-07-25T13:59:09+01:00</lastmod>
+        <lastmod>2018-07-25T13:59:27+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
