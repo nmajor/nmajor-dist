@@ -9,7 +9,7 @@
 <meta name="description" content="Middleware is one of the most powerful and useful features of redux. If you’re unfamiliar with redux middleware, basically it is a way to insert extra behavior into dispatched redux actions. Today we’re going to use it to make a clean and powerful way to manage our subscriptions to different...">
 -->
 <meta name="description" content="A blog filled with adventures in tech">
-<meta name="keywords" content="redux, javascript, websockets, action cable, react, rails">
+<meta name="keywords" content="redux, javascript, websockets, react, rails, actioncable">
 <link rel="canonical" href="/posts/making-redux-middleware-for-websockets">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Using Action Cable with Redux - Websocket Redux Middleware" />
@@ -98,9 +98,9 @@
             <a href="/tag/redux">#redux</a>
             <a href="/tag/javascript">#javascript</a>
             <a href="/tag/websockets">#websockets</a>
-            <a href="/tag/action cable">#action cable</a>
             <a href="/tag/react">#react</a>
             <a href="/tag/rails">#rails</a>
+            <a href="/tag/actioncable">#actioncable</a>
       </span>
           <a href="/posts/making-redux-middleware-for-websockets" title="Using Action Cable with Redux - Websocket Redux Middleware"><img class="hero-image" src="/uploads/2018/07/25/Action Cable.png" /></a>
    </div>
@@ -169,9 +169,9 @@ export default function cableMiddleware() {
     const {
       channel,
       room,
-      received,
       leave,
     } = action;
+    let { received } = action;
 
     if (!channel) {
       return next(action);
@@ -216,11 +216,12 @@ import rootReducer from './reducers/index';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(clientMiddleware)
+  applyMiddleware(clientMiddleware())
 );
 </pre></table>
 </div>
 </div>
+<p>Our other file is actually exporting a middleware creator function, so don’t forget to execute the <code class="highlighter-rouge">clientMiddleware</code> function when applying it to redux. This will also create the Action Cable connection only once when the store loads so we don’t have to worry about creating a new connection every time.
 <h3 id="our-new-action-creators">Our New Action Creators</h3>
 <p>We now have access to a new type of action that has new required attributes. Basically if we dispatch an action with a <code class="highlighter-rouge">channel</code> attribute it will trigger our cable middleware.
 <p>Here are some example action creators using our new middleware.

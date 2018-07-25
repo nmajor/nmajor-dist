@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 25 Jul 2018 14:23:22 +0100</pubDate>
-    <lastBuildDate>Wed, 25 Jul 2018 14:23:22 +0100</lastBuildDate>
+    <pubDate>Wed, 25 Jul 2018 14:25:47 +0100</pubDate>
+    <lastBuildDate>Wed, 25 Jul 2018 14:25:47 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -87,9 +87,9 @@ export default function cableMiddleware() {
     const {
       channel,
       room,
-      received,
       leave,
     } = action;
+    let { received } = action;
 
     if (!channel) {
       return next(action);
@@ -142,11 +142,13 @@ import rootReducer from './reducers/index';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(clientMiddleware)
+  applyMiddleware(clientMiddleware())
 );
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;p&gt;Our other file is actually exporting a middleware creator function, so don’t forget to execute the &lt;code class=&quot;highlighter-rouge&quot;&gt;clientMiddleware&lt;/code&gt; function when applying it to redux. This will also create the Action Cable connection only once when the store loads so we don’t have to worry about creating a new connection every time.&lt;/p&gt;
 
 &lt;h3 id=&quot;our-new-action-creators&quot;&gt;Our New Action Creators&lt;/h3&gt;
 
@@ -233,11 +235,11 @@ export function subscribeConversation(conversationId) {
         
         <category>websockets</category>
         
-        <category>action cable</category>
-        
         <category>react</category>
         
         <category>rails</category>
+        
+        <category>actioncable</category>
         
         
       </item>
