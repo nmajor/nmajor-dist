@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Aug 2018 20:54:50 +0100</pubDate>
-    <lastBuildDate>Tue, 21 Aug 2018 20:54:50 +0100</lastBuildDate>
+    <pubDate>Tue, 21 Aug 2018 20:55:11 +0100</pubDate>
+    <lastBuildDate>Tue, 21 Aug 2018 20:55:11 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -117,9 +117,11 @@ export default function socketMiddleware() {
 
 &lt;p&gt;Else we create a new event listener.&lt;/p&gt;
 
-&lt;p&gt;But you will notice that we are doing some quick logic to check if the &lt;code class=&quot;highlighter-rouge&quot;&gt;handle&lt;/code&gt; attribute is a string. And if it is, we are changing its value to be a function that dispatches a new action with the received data. So basically our &lt;code class=&quot;highlighter-rouge&quot;&gt;received&lt;/code&gt; attribute can take both an action type string or an actual function. This gives us an extra level of control over how we handle the data coming in from the socket.io server.&lt;/p&gt;
+&lt;p&gt;But you will notice that we are doing some quick logic to check if the &lt;code class=&quot;highlighter-rouge&quot;&gt;handle&lt;/code&gt; attribute is a string. And if it is, we are changing its value to a function that dispatches a new action with the received data. So basically our &lt;code class=&quot;highlighter-rouge&quot;&gt;received&lt;/code&gt; attribute can take both an action type string or an actual function. This gives us an extra level of control over how we handle the data coming in from the socket.io server.&lt;/p&gt;
 
 &lt;p&gt;And any data that is sent from the socket.io server is included in the &lt;code class=&quot;highlighter-rouge&quot;&gt;result&lt;/code&gt; attribute of the action. So the reducer can have easy access to any data the server sent. Also any extra action attributes (&lt;code class=&quot;highlighter-rouge&quot;&gt;...rest&lt;/code&gt;) are just passed directly through to the dispatched action.&lt;/p&gt;
+
+&lt;p&gt;Also notice that the function that we are exporting is returning another function. This is an example of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Higher-order_function&quot; title=&quot;https://en.wikipedia.org/wiki/Higher-order_function&quot;&gt;Higher-order function&lt;/a&gt; and is a very useful pattern in Javascript. We will execute the outside function when we apply the middleware to redux which will create the socket.io connection only once and give the inner function access to that connection going forward.&lt;/p&gt;
 
 &lt;h3 id=&quot;add-middleware-to-redux&quot;&gt;Add Middleware to Redux&lt;/h3&gt;
 
@@ -138,15 +140,17 @@ import rootReducer from './reducers/index';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(socketMiddleware)
+  applyMiddleware(socketMiddleware())
 );
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;p&gt;Since other file is actually exporting a higher-order function, don’t forget to execute the socketMiddleware function when applying it to redux. This will also create the socket.io connection only once when the store loads so we don’t have to worry about creating a new connection every time.&lt;/p&gt;
+
 &lt;h3 id=&quot;our-new-action-creators&quot;&gt;Our New Action Creators&lt;/h3&gt;
 
-&lt;p&gt;We now have access to a new type of action that has new required attributes. If we dispatch an action with a &lt;code class=&quot;highlighter-rouge&quot;&gt;channel&lt;/code&gt; attribute it will trigger our cable middleware.&lt;/p&gt;
+&lt;p&gt;We now have access to a new type of action that has new required attributes. If we dispatch an action with a &lt;code class=&quot;highlighter-rouge&quot;&gt;event&lt;/code&gt; attribute it will trigger our socket middleware.&lt;/p&gt;
 
 &lt;p&gt;Here are some example action creators using our new middleware.&lt;/p&gt;
 
