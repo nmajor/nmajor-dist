@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Aug 2018 20:39:51 +0100</pubDate>
-    <lastBuildDate>Tue, 21 Aug 2018 20:39:51 +0100</lastBuildDate>
+    <pubDate>Tue, 21 Aug 2018 20:41:27 +0100</pubDate>
+    <lastBuildDate>Tue, 21 Aug 2018 20:41:27 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -222,7 +222,11 @@ export function subscribeConversation() {
     
       <item>
         <title>Using Action Cable with Redux - Websocket Redux Middleware</title>
-        <description>&lt;p&gt;Middleware is one of the most powerful and useful features of redux. If you’re unfamiliar with redux middleware, basically it is a way to insert extra behavior into dispatched redux actions.&lt;/p&gt;
+        <description>&lt;p&gt;This article uses ActionCable as the websocket library. If you want to see a version of this article using socket.io, &lt;a href=&quot;/posts/using-socket-io-with-redux-websocket-redux-middleware&quot; title=&quot;/posts/using-socket-io-with-redux-websocket-redux-middleware&quot;&gt;click here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Middleware is one of the most powerful and useful features of redux. If you’re unfamiliar with redux middleware, like any middleware, it is a way to insert extra behavior into dispatched redux actions.&lt;/p&gt;
 
 &lt;p&gt;Today we’re going to use it to make a clean and powerful way to manage our subscriptions to different Action Cable channels+rooms this also means taking the data sent to use through action cable and dispatching the appropriate redux actions to mutate the state.&lt;/p&gt;
 
