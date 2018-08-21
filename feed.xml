@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Aug 2018 20:42:12 +0100</pubDate>
-    <lastBuildDate>Tue, 21 Aug 2018 20:42:12 +0100</lastBuildDate>
+    <pubDate>Tue, 21 Aug 2018 20:50:55 +0100</pubDate>
+    <lastBuildDate>Tue, 21 Aug 2018 20:50:55 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -228,7 +228,7 @@ export function subscribeConversation() {
 
 &lt;p&gt;Middleware is one of the most powerful and useful features of redux. If you’re unfamiliar with redux middleware, it is a way to insert extra behavior into dispatched redux actions.&lt;/p&gt;
 
-&lt;p&gt;Today we’re going to use it to make a clean and powerful way to manage our subscriptions to different Action Cable channels+rooms this also means taking the data sent to use through action cable and dispatching the appropriate redux actions to mutate the state.&lt;/p&gt;
+&lt;p&gt;Today we’re going to use it to make a clean and powerful way to manage our subscriptions to different Action Cable channels+rooms. This also means taking the data sent to use through action cable and dispatching the appropriate redux actions to mutate the state.&lt;/p&gt;
 
 &lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
@@ -245,7 +245,7 @@ export function subscribeConversation() {
 
 &lt;p&gt;Redux actions have 1 required attribute, &lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;. Anything else is just extra and is usually meant to be used by the reducer to mutate the state.&lt;/p&gt;
 
-&lt;p&gt;By using redux middleware we can define our own action patterns and structures. Then when any action is dispatched we can check if the action matches a specific pattern and have it do different things.&lt;/p&gt;
+&lt;p&gt;By using redux middleware we can define our own action patterns and structures. The middleware will check if the action has other specific attributes and handle that action differently than the others. That way all we have to do to trigger some custom redux behavior is dispatch an action with our specific attributes and it will automatically be handled differently.&lt;/p&gt;
 
 &lt;p&gt;Specifically we are going to create a new kind of action that will subscribe or unsubscribe to specific Action Cable channels+rooms.&lt;/p&gt;
 
@@ -338,7 +338,11 @@ export default function cableMiddleware() {
 
 &lt;p&gt;Else we create a subscription to the channel+room.&lt;/p&gt;
 
-&lt;p&gt;But you will notice that we are doing some quick logic to check if the &lt;code class=&quot;highlighter-rouge&quot;&gt;received&lt;/code&gt; attribute is a string. And if it is we are changing its value to be a function that dispatches a new action with the received data. So basically our &lt;code class=&quot;highlighter-rouge&quot;&gt;received&lt;/code&gt; attribute can take both an action type string or an actual function. This gives us an extra level of control over how we handle the data coming in from Action Cable.&lt;/p&gt;
+&lt;p&gt;But you will notice that we are doing some quick logic to check if the &lt;code class=&quot;highlighter-rouge&quot;&gt;received&lt;/code&gt; attribute is a string. And if it is, we are changing its value to a function that dispatches a new action with the received data. So basically our &lt;code class=&quot;highlighter-rouge&quot;&gt;received&lt;/code&gt; attribute can take both an action type string or an actual function. This gives us an extra level of control over how we handle the data coming in from Action Cable.&lt;/p&gt;
+
+&lt;p&gt;And any data that is sent from the socket.io server is included in the &lt;code class=&quot;highlighter-rouge&quot;&gt;result&lt;/code&gt; attribute of the action. So the reducer can have easy access to any data the server sent. Also any extra action attributes (&lt;code class=&quot;highlighter-rouge&quot;&gt;...rest&lt;/code&gt;) are just passed directly through to the dispatched action.&lt;/p&gt;
+
+&lt;p&gt;Also notice that the function that we are executing is returning another function. This is an example of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Higher-order_function&quot; title=&quot;https://en.wikipedia.org/wiki/Higher-order_function&quot;&gt;Higher-order function&lt;/a&gt; and is a very useful pattern in Javascript. We will execute the outside function when we apply the middleware to redux which will create the ActionCable connection only once and give the inner function access to that cable connection going forward.&lt;/p&gt;
 
 &lt;h3 id=&quot;add-middleware-to-redux&quot;&gt;Add Middleware to Redux&lt;/h3&gt;
 
@@ -352,18 +356,18 @@ export default function cableMiddleware() {
 6
 7
 8&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;import { createStore, applyMiddleware } from 'redux';
-import clientMiddleware from './middleware/clientMiddleware';
+import cableMiddleware from './middleware/cableMiddleware';
 import rootReducer from './reducers/index';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(clientMiddleware())
+  applyMiddleware(cableMiddleware())
 );
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Our other file is actually exporting a middleware creator function, so don’t forget to execute the &lt;code class=&quot;highlighter-rouge&quot;&gt;clientMiddleware&lt;/code&gt; function when applying it to redux. This will also create the Action Cable connection only once when the store loads so we don’t have to worry about creating a new connection every time.&lt;/p&gt;
+&lt;p&gt;Our other file is actually exporting a middleware creator function, so don’t forget to execute the cableMiddleware function when applying it to redux. This will also create the Action Cable connection only once when the store loads so we don’t have to worry about creating a new connection every time.&lt;/p&gt;
 
 &lt;h3 id=&quot;our-new-action-creators&quot;&gt;Our New Action Creators&lt;/h3&gt;
 
