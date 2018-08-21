@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Aug 2018 20:41:53 +0100</pubDate>
-    <lastBuildDate>Tue, 21 Aug 2018 20:41:53 +0100</lastBuildDate>
+    <pubDate>Tue, 21 Aug 2018 20:42:12 +0100</pubDate>
+    <lastBuildDate>Tue, 21 Aug 2018 20:42:12 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -226,7 +226,7 @@ export function subscribeConversation() {
 
 &lt;hr /&gt;
 
-&lt;p&gt;Middleware is one of the most powerful and useful features of redux. If you’re unfamiliar with redux middleware, like any middleware, it is a way to insert extra behavior into dispatched redux actions.&lt;/p&gt;
+&lt;p&gt;Middleware is one of the most powerful and useful features of redux. If you’re unfamiliar with redux middleware, it is a way to insert extra behavior into dispatched redux actions.&lt;/p&gt;
 
 &lt;p&gt;Today we’re going to use it to make a clean and powerful way to manage our subscriptions to different Action Cable channels+rooms this also means taking the data sent to use through action cable and dispatching the appropriate redux actions to mutate the state.&lt;/p&gt;
 
