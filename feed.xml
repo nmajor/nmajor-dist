@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 22 Aug 2018 12:04:42 +0100</pubDate>
-    <lastBuildDate>Wed, 22 Aug 2018 12:04:42 +0100</lastBuildDate>
+    <pubDate>Wed, 22 Aug 2018 12:05:07 +0100</pubDate>
+    <lastBuildDate>Wed, 22 Aug 2018 12:05:07 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -217,7 +217,7 @@ export function subscribeConversation() {
 
 &lt;p&gt;Now we’ve set this up we can subscribe and unsubscribe to socket.io events really easily just by dispatching one of our new action creators.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 25 Jul 2018 01:00:00 +0100</pubDate>
+        <pubDate>Tue, 21 Aug 2018 13:59:28 +0100</pubDate>
         <link>/posts/using-socket-io-with-redux-websocket-redux-middleware</link>
         <guid isPermaLink="true">/posts/using-socket-io-with-redux-websocket-redux-middleware</guid>
         
