@@ -5,13 +5,13 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 22 Aug 2018 12:04:21 +0100</pubDate>
-    <lastBuildDate>Wed, 22 Aug 2018 12:04:21 +0100</lastBuildDate>
+    <pubDate>Wed, 22 Aug 2018 12:04:42 +0100</pubDate>
+    <lastBuildDate>Wed, 22 Aug 2018 12:04:42 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
         <title>Using Socket.io with Redux - Websocket Redux Middleware</title>
-        <description>&lt;p&gt;This article uses socket.io as the websocket library. If you want to see a version of this article using ActionCable, &lt;a href=&quot;/posts/making-redux-middleware-for-websockets&quot; title=&quot;/posts/making-redux-middleware-for-websockets&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;This article uses socket.io as the websocket library. If you want to see a version of this article using Rails’ ActionCable library, &lt;a href=&quot;/posts/making-redux-middleware-for-websockets&quot; title=&quot;/posts/making-redux-middleware-for-websockets&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
