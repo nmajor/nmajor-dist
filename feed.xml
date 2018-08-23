@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Aug 2018 19:54:27 +0100</pubDate>
-    <lastBuildDate>Thu, 23 Aug 2018 19:54:27 +0100</lastBuildDate>
+    <pubDate>Thu, 23 Aug 2018 19:57:02 +0100</pubDate>
+    <lastBuildDate>Thu, 23 Aug 2018 19:57:02 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -425,7 +425,9 @@ export default function clientMiddleware(client) {
 
 &lt;p&gt;And the tokens are automatically refreshed and persisted.&lt;/p&gt;
 
-&lt;p&gt;I still have some cleaning up to do with my setup, but it seems to be pretty functional and reliable so far. I’ll be sure to update this article if I discover any problems or brittleness with this implementation.&lt;/p&gt;
+&lt;p&gt;I still have some cleaning up to do with my setup. I’d like to modularize that refresh token bit. I first tried to put it into its own middleware, but the existing client middleware dispatches an initial action (LOAD in the example above) that triggers the loading state and adds spinners. Having the refresh token part in its own middleware delayed the loading state until after the refresh so it made for a bad user experience.&lt;/p&gt;
+
+&lt;p&gt;It seems to be pretty functional and reliable so far. I’ll be sure to update this article if I discover any problems or brittleness with this implementation.&lt;/p&gt;
 
 &lt;p&gt;If you notice any mistakes in here, or if you have any ideas on how to improve this setup, please let me know in the comments. :)&lt;/p&gt;
 </description>
