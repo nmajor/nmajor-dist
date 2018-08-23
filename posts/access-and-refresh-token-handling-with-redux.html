@@ -203,7 +203,7 @@ store.subscribe(() =&gt; {
 </div>
 <p>And I was able to refresh the page and the auth tokens persist. So it works!
 <h3 id="automatic-token-refreshing">Automatic Token Refreshing</h3>
-<p>I debated whether or not to include this part
+<p>I debated whether or not to include this part, because there’s so many different ways to implement it, but the ways I think are truly nice and elegant can be a bit complex for a blog post. But I’ll try anyway. Hopefully people can get a few good ideas from this.
 <p>Now this step is going to vary a lot depending on your implementation. I was greatly inspired by <a href="https://github.com/erikras/react-redux-universal-hot-example">this library (erikras/react-redux-universal-hot-example)</a> which has a really nice middleware setup for making API requests by dispatching redux actions.
 <p>Although my final implementation looks much more like that the middleware found in the <a href="https://github.com/erikras/react-redux-universal-hot-example">erikras/react-redux-universal-hot-example</a> mentioned above, here is an exmample of how you might do a simplified version of some API request middleware with the refresh token.
 <p>I’m assuming you are using a function dispatcher middleware like <a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a> and <a href="https://github.com/visionmedia/superagent">superagent</a> as the request library.
@@ -390,8 +390,7 @@ const store = createStore(
 51
 52
 53
-54
-55</pre><td class="code"><pre>import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
+54</pre><td class="code"><pre>import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
 const refreshThreshold = (new Date().getTime() + 300000); // 5 minutes from now
 
 export default function clientMiddleware(client) {
@@ -445,7 +444,6 @@ export default function clientMiddleware(client) {
     return actionPromise;
   };
 }
-
 </pre></table>
 </div>
 </div>
@@ -466,6 +464,7 @@ export default function clientMiddleware(client) {
 </div>
 <p>And the tokens are automatically refreshed and persisted.
 <p>I still have some cleaning up to do with my setup, but it seems to be pretty functional and reliable so far. I’ll be sure to update this article if I discover any problems or brittleness with this implementation.
+<p>If you notice any mistakes in here, or if you have any ideas on how to improve this setup, please let me know in the comments. :)
 </article>
 <div id="disqus_thread"></div>
 <script type="text/javascript">

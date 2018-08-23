@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Aug 2018 19:47:53 +0100</pubDate>
-    <lastBuildDate>Thu, 23 Aug 2018 19:47:53 +0100</lastBuildDate>
+    <pubDate>Thu, 23 Aug 2018 19:54:27 +0100</pubDate>
+    <lastBuildDate>Thu, 23 Aug 2018 19:54:27 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -143,7 +143,7 @@ store.subscribe(() =&amp;gt; {
 
 &lt;h3 id=&quot;automatic-token-refreshing&quot;&gt;Automatic Token Refreshing&lt;/h3&gt;
 
-&lt;p&gt;I debated whether or not to include this part&lt;/p&gt;
+&lt;p&gt;I debated whether or not to include this part, because there’s so many different ways to implement it, but the ways I think are truly nice and elegant can be a bit complex for a blog post. But I’ll try anyway. Hopefully people can get a few good ideas from this.&lt;/p&gt;
 
 &lt;p&gt;Now this step is going to vary a lot depending on your implementation. I was greatly inspired by &lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot;&gt;this library (erikras/react-redux-universal-hot-example)&lt;/a&gt; which has a really nice middleware setup for making API requests by dispatching redux actions.&lt;/p&gt;
 
@@ -348,8 +348,7 @@ const store = createStore(
 51
 52
 53
-54
-55&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
+54&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
 const refreshThreshold = (new Date().getTime() + 300000); // 5 minutes from now
 
 export default function clientMiddleware(client) {
@@ -403,7 +402,6 @@ export default function clientMiddleware(client) {
     return actionPromise;
   };
 }
-
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -428,6 +426,8 @@ export default function clientMiddleware(client) {
 &lt;p&gt;And the tokens are automatically refreshed and persisted.&lt;/p&gt;
 
 &lt;p&gt;I still have some cleaning up to do with my setup, but it seems to be pretty functional and reliable so far. I’ll be sure to update this article if I discover any problems or brittleness with this implementation.&lt;/p&gt;
+
+&lt;p&gt;If you notice any mistakes in here, or if you have any ideas on how to improve this setup, please let me know in the comments. :)&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Aug 2018 01:00:00 +0100</pubDate>
         <link>/posts/access-and-refresh-token-handling-with-redux</link>
