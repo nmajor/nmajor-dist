@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 22 Aug 2018 19:50:40 +0100</pubDate>
-    <lastBuildDate>Wed, 22 Aug 2018 19:50:40 +0100</lastBuildDate>
+    <pubDate>Thu, 23 Aug 2018 12:46:34 +0100</pubDate>
+    <lastBuildDate>Thu, 23 Aug 2018 12:46:34 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -15,7 +15,7 @@
 
 &lt;p&gt;What I want is to have my development environment run with the one set of environment variables and my tests run with a different set of environment variables.&lt;/p&gt;
 
-&lt;p&gt;I think it might be a problem related to webpack but I could never get &lt;code class=&quot;highlighter-rouge&quot;&gt;dotenv&lt;/code&gt; to work reliably, any env variables I referenced would be &lt;code class=&quot;highlighter-rouge&quot;&gt;undefined&lt;/code&gt;, but then I finally found the solution in &lt;a href=&quot;https://github.com/motdotla/dotenv/issues/133#issuecomment-255298822&quot; title=&quot;https://github.com/motdotla/dotenv/issues/133#issuecomment-255298822&quot;&gt;this github issue&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;The instructions say to put this line in your code as early as possible.&lt;/p&gt;
 
@@ -25,6 +25,8 @@
 &lt;/div&gt;
 
 &lt;p&gt;But that didnt work for me.&lt;/p&gt;
+
+&lt;p&gt;I think it might be a problem related to webpack. I could never get &lt;code class=&quot;highlighter-rouge&quot;&gt;dotenv&lt;/code&gt; to work reliably, any env variables I referenced would be &lt;code class=&quot;highlighter-rouge&quot;&gt;undefined&lt;/code&gt;, but then I finally found the solution in &lt;a href=&quot;https://github.com/motdotla/dotenv/issues/133#issuecomment-255298822&quot; title=&quot;https://github.com/motdotla/dotenv/issues/133#issuecomment-255298822&quot;&gt;this github issue&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;What you have to do is create a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;.env.js&lt;/code&gt; that looks like this:&lt;/p&gt;
 
@@ -64,7 +66,7 @@ dotenv.config({ path: '.env.test' });
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;And thats the only way I have been able to get dotenv to work predictably.&lt;/p&gt;
+&lt;p&gt;And thats the only way I have been able to get dotenv to work predictably. I hope this helps someone.&lt;/p&gt;
 </description>
         <pubDate>Wed, 22 Aug 2018 01:00:00 +0100</pubDate>
         <link>/posts/node-env-variables-solving-the-nightmare</link>
