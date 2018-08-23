@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Aug 2018 19:43:35 +0100</pubDate>
-    <lastBuildDate>Thu, 23 Aug 2018 19:43:35 +0100</lastBuildDate>
+    <pubDate>Thu, 23 Aug 2018 19:45:27 +0100</pubDate>
+    <lastBuildDate>Thu, 23 Aug 2018 19:45:27 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -522,7 +522,7 @@ dotenv.config({ path: '.env.test' });
 
 &lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;Check out the [redux middleware documentation here](&lt;a href=&quot;https://redux.js.org/advanced/middleware&quot; title=&quot;https://redux.js.org/advanced/middleware&quot;&gt;https://redux.js.org/advanced/middleware&lt;/a&gt;). The code below is inspired by reading through the source of [this example redux app](&lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot;&gt;https://github.com/erikras/react-redux-universal-hot-example&lt;/a&gt;), specifically [this middleware](&lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot;&gt;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&lt;/a&gt;), so you may also want to check that out as well.&lt;/p&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://redux.js.org/advanced/middleware&quot; title=&quot;https://redux.js.org/advanced/middleware&quot;&gt;redux middleware documentation here&lt;/a&gt; The code below is inspired by reading through the source of &lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example&quot;&gt;this example redux app&lt;/a&gt;, specifically &lt;a href=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot; title=&quot;https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js&quot;&gt;this middleware&lt;/a&gt;, so you may also want to check that out as well.&lt;/p&gt;
 
 &lt;h3 id=&quot;typical-redux-actions&quot;&gt;Typical Redux Actions&lt;/h3&gt;
 
@@ -626,7 +626,7 @@ export default function socketMiddleware() {
 
 &lt;h3 id=&quot;add-middleware-to-redux&quot;&gt;Add Middleware to Redux&lt;/h3&gt;
 
-&lt;p&gt;Then we have to apply our new middlware. Check the [redux documentation](&lt;a href=&quot;https://redux.js.org/advanced/middleware#attempt-6-naively-applying-the-middleware&quot; title=&quot;https://redux.js.org/advanced/middleware#attempt-6-naively-applying-the-middleware&quot;&gt;https://redux.js.org/advanced/middleware#attempt-6-naively-applying-the-middleware&lt;/a&gt;) for how to do this. But you will probably need to do something like this when setting up your store:&lt;/p&gt;
+&lt;p&gt;Then we have to apply our new middlware. Check the &lt;a href=&quot;https://redux.js.org/advanced/middleware#attempt-6-naively-applying-the-middleware&quot; title=&quot;https://redux.js.org/advanced/middleware#attempt-6-naively-applying-the-middleware&quot;&gt;redux documentation&lt;/a&gt; for how to do this. But you will probably need to do something like this when setting up your store:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
