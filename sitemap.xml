@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>/posts/access-and-refresh-token-handling-with-redux/</loc>
+      
+        <lastmod>2018-08-23T01:00:00+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.7</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>/posts/node-env-variables-solving-the-nightmare/</loc>
       
         <lastmod>2018-08-22T01:00:00+01:00</lastmod>
@@ -143,7 +158,7 @@
     <url>
       <loc>/about/</loc>
       
-        <lastmod>2018-08-23T19:43:18+01:00</lastmod>
+        <lastmod>2018-08-23T19:43:35+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -158,7 +173,7 @@
     <url>
       <loc>/archive/</loc>
       
-        <lastmod>2018-08-23T19:43:18+01:00</lastmod>
+        <lastmod>2018-08-23T19:43:35+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -175,7 +190,7 @@
     <url>
       <loc>/config-forestryio.yml</loc>
       
-        <lastmod>2018-08-23T19:43:18+01:00</lastmod>
+        <lastmod>2018-08-23T19:43:35+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -192,7 +207,7 @@
     <url>
       <loc>/</loc>
       
-        <lastmod>2018-08-23T19:43:18+01:00</lastmod>
+        <lastmod>2018-08-23T19:43:35+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -228,7 +243,7 @@
     <url>
       <loc>/page-2/</loc>
       
-        <lastmod>2018-08-23T19:43:18+01:00</lastmod>
+        <lastmod>2018-08-23T19:43:35+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
