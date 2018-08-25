@@ -280,6 +280,20 @@ test('hello', async () =&gt; {
 </pre></table>
 </div>
 </div>
+<p>This will start an offline server that you can use to make API requests and test all the endpoints.
+<p>I also like to add a script in the <code class="highlighter-rouge">package.json</code> file to make this easy to launch:
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre><td class="code"><pre>  "scripts": {
+  	"start": "serverless offline start",
+    "lint": "node_modules/.bin/eslint .",
+    "test": "NODE_ENV=test node_modules/.bin/mocha --recursive --require babel-core/register"
+  },
+</pre></table>
+</div>
+</div>
 <h3 id="add-eslint">Add ESLint</h3>
 <p>I always work with a linter these days, there’s no better way to keep clean code and enforce best practices with a language like javascript where its so easy to write messy and ugly code.
 <p>Lets add <code class="highlighter-rouge">eslint</code> and some plugins:
@@ -322,8 +336,10 @@ webpack.config.js
 <p>And then add a <code class="highlighter-rouge">lint</code> script to our <code class="highlighter-rouge">package.json</code>:
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3</pre><td class="code"><pre>  "scripts": {
-    "lint": "node_modules/.bin/eslint ."
+3
+4</pre><td class="code"><pre>  "scripts": {
+  	"start": "serverless offline start",
+    "lint": "node_modules/.bin/eslint .",
   },
 </pre></table>
 </div>
@@ -535,7 +551,9 @@ describe('Fetching list of todos', () =&gt; {
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
-4</pre><td class="code"><pre>  "scripts": {
+4
+5</pre><td class="code"><pre>  "scripts": {
+  	"start": "serverless offline start",
     "lint": "node_modules/.bin/eslint .",
     "test": "NODE_ENV=test node_modules/.bin/mocha --recursive --require babel-core/register"
   },

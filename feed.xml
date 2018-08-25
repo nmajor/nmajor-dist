@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Aug 2018 19:18:03 +0100</pubDate>
-    <lastBuildDate>Sat, 25 Aug 2018 19:18:03 +0100</lastBuildDate>
+    <pubDate>Sat, 25 Aug 2018 19:24:05 +0100</pubDate>
+    <lastBuildDate>Sat, 25 Aug 2018 19:24:05 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -218,6 +218,23 @@ test('hello', async () =&amp;gt; {
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;p&gt;This will start an offline server that you can use to make API requests and test all the endpoints.&lt;/p&gt;
+
+&lt;p&gt;I also like to add a script in the &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; file to make this easy to launch:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  &quot;scripts&quot;: {
+  	&quot;start&quot;: &quot;serverless offline start&quot;,
+    &quot;lint&quot;: &quot;node_modules/.bin/eslint .&quot;,
+    &quot;test&quot;: &quot;NODE_ENV=test node_modules/.bin/mocha --recursive --require babel-core/register&quot;
+  },
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;h3 id=&quot;add-eslint&quot;&gt;Add ESLint&lt;/h3&gt;
 
 &lt;p&gt;I always work with a linter these days, there’s no better way to keep clean code and enforce best practices with a language like javascript where its so easy to write messy and ugly code.&lt;/p&gt;
@@ -273,8 +290,10 @@ webpack.config.js
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
-3&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  &quot;scripts&quot;: {
-    &quot;lint&quot;: &quot;node_modules/.bin/eslint .&quot;
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  &quot;scripts&quot;: {
+  	&quot;start&quot;: &quot;serverless offline start&quot;,
+    &quot;lint&quot;: &quot;node_modules/.bin/eslint .&quot;,
   },
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -513,7 +532,9 @@ describe('Fetching list of todos', () =&amp;gt; {
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
-4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  &quot;scripts&quot;: {
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  &quot;scripts&quot;: {
+  	&quot;start&quot;: &quot;serverless offline start&quot;,
     &quot;lint&quot;: &quot;node_modules/.bin/eslint .&quot;,
     &quot;test&quot;: &quot;NODE_ENV=test node_modules/.bin/mocha --recursive --require babel-core/register&quot;
   },
