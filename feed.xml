@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Aug 2018 19:04:16 +0100</pubDate>
-    <lastBuildDate>Sat, 25 Aug 2018 19:04:16 +0100</lastBuildDate>
+    <pubDate>Sat, 25 Aug 2018 19:07:29 +0100</pubDate>
+    <lastBuildDate>Sat, 25 Aug 2018 19:07:29 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -14,6 +14,8 @@
         <description>&lt;p&gt;As a Rails developer turned Javascript Zealot, I sometimes miss the structure and opinions of the Ruby on Rails world. Its amazing how bare bones many javascript libraries are. They are so modular and self contained (good things) that, unless you take the time to add some structure and organization to your code, its easy for your project to feel chaotic an unorganized. So I’m always looking for and trying to find good patterns and structure to follow with my javascript projects.&lt;/p&gt;
 
 &lt;p&gt;The serverless framework is a good example of this. Its so minimal in its setup that it may be difficult to know where to start to give it some structure. So here I’ll share with you one possible way to structure a serverless API project.&lt;/p&gt;
+
+&lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;Basically before I start any serious project I like to have a few things setup:&lt;/p&gt;
 
