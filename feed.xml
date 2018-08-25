@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Aug 2018 19:10:24 +0100</pubDate>
-    <lastBuildDate>Sat, 25 Aug 2018 19:10:24 +0100</lastBuildDate>
+    <pubDate>Sat, 25 Aug 2018 19:16:32 +0100</pubDate>
+    <lastBuildDate>Sat, 25 Aug 2018 19:16:32 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -224,7 +224,7 @@ test('hello', async () =&amp;gt; {
 
 &lt;p&gt;Lets add &lt;code class=&quot;highlighter-rouge&quot;&gt;eslint&lt;/code&gt; and some plugins:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;yarn add --dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-mocha eslint-plugin-promise
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;, yarn add --dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-mocha eslint-plugin-promise
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -430,6 +430,8 @@ export default (event, context, callback) =&amp;gt; {
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;p&gt;And if you are following along, you’ll have to add an export to all the handler files in order to run the offline server.&lt;/p&gt;
 
 &lt;h3 id=&quot;setup-testing&quot;&gt;Setup Testing&lt;/h3&gt;
 

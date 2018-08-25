@@ -283,7 +283,7 @@ test('hello', async () =&gt; {
 <h3 id="add-eslint">Add ESLint</h3>
 <p>I always work with a linter these days, there’s no better way to keep clean code and enforce best practices with a language like javascript where its so easy to write messy and ugly code.
 <p>Lets add <code class="highlighter-rouge">eslint</code> and some plugins:
-<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>yarn add --dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-mocha eslint-plugin-promise
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>, yarn add --dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-mocha eslint-plugin-promise
 </pre></table>
 </div>
 </div>
@@ -462,6 +462,7 @@ export default (event, context, callback) =&gt; {
 </pre></table>
 </div>
 </div>
+<p>And if you are following along, you’ll have to add an export to all the handler files in order to run the offline server.
 <h3 id="setup-testing">Setup Testing</h3>
 <p>By default the starter comes with <code class="highlighter-rouge">jest</code> but I prefer <code class="highlighter-rouge">mocha</code> so lets swap <code class="highlighter-rouge">jest</code> for <code class="highlighter-rouge">mocha</code> and add a bit of <code class="highlighter-rouge">chai</code> for the assertions.
 <div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
