@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>Serverless Framework S3 Permissions (Serverless IAM Permissions) &#9642; NMajor Blog</title>
 <!--
-<meta name="description" content="Its hard to find a good title for this. Usually you will never us a lambda function to upload to S3. For user submitted files, the right way to upload to S3 is generate a temporary signed upload URL and the user will submit directly to S3 without sending the...">
+<meta name="description" content="This really isn’t a complicated problem, but I want to document this for later. Its hard to find a good title for this. Usually you will never us a lambda function to upload to S3. For user submitted files, the right way to upload to S3 is generate a temporary...">
 -->
 <meta name="description" content="A blog filled with adventures in tech">
 <meta name="keywords" content="serverless, javascript, aws">
@@ -102,9 +102,9 @@
           <a href="/posts/serverless-framework-s3-file-uploads" title="Serverless Framework S3 Permissions (Serverless IAM Permissions)"><img class="hero-image" src="" /></a>
    </div>
  </div>
-   <p>Its hard to find a good title for this. Usually you will never us a lambda function to upload to S3. For user submitted files, the right way to upload to S3 is generate a temporary signed upload URL and the user will submit directly to S3 without sending the file to the serverless function.
+   <p>This really isn’t a complicated problem, but I want to document this for later.
+<p>Its hard to find a good title for this. Usually you will never us a lambda function to upload to S3. For user submitted files, the right way to upload to S3 is generate a temporary signed upload URL and the user will submit directly to S3 without sending the file to the serverless function.
 <p>But I do a lot of PDF generation with one of my projects so I need to be able to put S3 objects from the serverless function, so I need a bit of setup to do that.
-<p>This really isn’t a complicated problem, but I want to document this for later.
 <p>I created a new bucket in S3.
 <p>Then the main thing is find the simplest way to grant the serverless project access to the S3 bucket.
 <p>According to <a href="https://serverless.com/framework/docs/providers/aws/guide/iam/" title="https://serverless.com/framework/docs/providers/aws/guide/iam/">this post</a> the serverless framework automatically creates a IAM user for the serverless project. There are ways to customize this, but I’m going to just grant that default IAM user access to S3 and then I should be good to go.
