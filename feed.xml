@@ -5,9 +5,59 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Aug 2018 22:08:58 +0100</pubDate>
-    <lastBuildDate>Tue, 28 Aug 2018 22:08:58 +0100</lastBuildDate>
+    <pubDate>Tue, 28 Aug 2018 23:10:09 +0100</pubDate>
+    <lastBuildDate>Tue, 28 Aug 2018 23:10:09 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
+    
+      <item>
+        <title>Serverless Framework S3 Permissions (Serverless IAM Permissions)</title>
+        <description>&lt;p&gt;Its hard to find a good title for this. Usually you will never us a lambda function to upload to S3. For user submitted files, the right way to upload to S3 is generate a temporary signed upload URL and the user will submit directly to S3 without sending the file to the serverless function.&lt;/p&gt;
+
+&lt;p&gt;But I do a lot of PDF generation with one of my projects so I need to be able to put S3 objects from the serverless function, so I need a bit of setup to do that.&lt;/p&gt;
+
+&lt;p&gt;This really isn’t a complicated problem, but I want to document this for later.&lt;/p&gt;
+
+&lt;p&gt;I created a new bucket in S3.&lt;/p&gt;
+
+&lt;p&gt;Then the main thing is find the simplest way to grant the serverless project access to the S3 bucket.&lt;/p&gt;
+
+&lt;p&gt;According to &lt;a href=&quot;https://serverless.com/framework/docs/providers/aws/guide/iam/&quot; title=&quot;https://serverless.com/framework/docs/providers/aws/guide/iam/&quot;&gt;this post&lt;/a&gt; the serverless framework automatically creates a IAM user for the serverless project. There are ways to customize this, but I’m going to just grant that default IAM user access to S3 and then I should be good to go.&lt;/p&gt;
+
+&lt;p&gt;Luckily thats as easy as adding this to the &lt;code class=&quot;highlighter-rouge&quot;&gt;serverless.yml&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;provider:
+  ...
+  iamRoleStatements:
+    - Effect: &quot;Allow&quot;
+      Action:
+       - &quot;s3:PutObject&quot;
+       - &quot;s3:DeleteObject&quot;
+      Resource: { &quot;Fn::Join&quot;: [&quot;&quot;, [&quot;arn:aws:s3:::BUCKET_NAME&quot;, &quot;/*&quot; ] ] }
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/46098173/how-to-add-iamrolestatements-to-s3-trigger-bucket-in-serverless-framework&quot; title=&quot;https://stackoverflow.com/questions/46098173/how-to-add-iamrolestatements-to-s3-trigger-bucket-in-serverless-framework&quot;&gt;This stackoverflow question&lt;/a&gt; was helpful in figuring this out. Also it probably would help if I understood cloudformation and aws IAM users more.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Aug 2018 01:00:00 +0100</pubDate>
+        <link>/posts/serverless-framework-s3-file-uploads</link>
+        <guid isPermaLink="true">/posts/serverless-framework-s3-file-uploads</guid>
+        
+        <category>serverless</category>
+        
+        <category>javascript</category>
+        
+        <category>aws</category>
+        
+        
+      </item>
     
       <item>
         <title>Robust Serverless API Boilerplate with ES6, Folder Structure, Testing (Mocha + Chai), and ESLint</title>
@@ -2331,114 +2381,6 @@ $ npm install babel-preset-env --save-dev
         <category>babel</category>
         
         <category>es6</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Deploying Node.js on Azure App Services</title>
-        <description>&lt;p&gt;I know, I know, I know, Microsoft is not the company you think of when its time to figure out where to host your Node.js app, but Azure has a surprisingly robust suite of services now. And deploying to &lt;a href=&quot;https://azure.microsoft.com/en-us/services/app-service/&quot; title=&quot;Azure App Service&quot;&gt;Azure App Services&lt;/a&gt; was easier than I expected.&lt;/p&gt;
-
-&lt;p class=&quot;lead&quot;&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;In this post I’m going to go over how to deploy a Node.js app to Azure App Services and also mention some of the things I learned from working with Azure.&lt;/p&gt;
-
-&lt;h1 id=&quot;your-azure-account&quot;&gt;Your Azure Account&lt;/h1&gt;
-
-&lt;h3 id=&quot;azure-account&quot;&gt;Azure account&lt;/h3&gt;
-
-&lt;p&gt;First of all, you need to make sure you have an Azure account. If you don’t have one you can sign up for Azure &lt;a href=&quot;https://azure.microsoft.com/free/&quot; title=&quot;Azure Signup&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;azure-subscription&quot;&gt;Azure Subscription&lt;/h3&gt;
-
-&lt;p&gt;Azure requires you to have something called a subscription before you can start using Azure services. This subscription is basically a billing program.&lt;/p&gt;
-
-&lt;p&gt;Double check that you have a subscription by going to this page in your Azure portal:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade&quot; title=&quot;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade&quot;&gt;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If you don’t see a subscription listed, then add one.&lt;/p&gt;
-
-&lt;p&gt;If you have just signed up you’ll notice that one of the subscription options is “Free Trial” so you can use that and then later change to a “Pay as You Go” option later if you run out of free resources.&lt;/p&gt;
-
-&lt;h3 id=&quot;azure-command-line-tool&quot;&gt;Azure Command Line Tool&lt;/h3&gt;
-
-&lt;p&gt;We are going to be doing this entire setup using the Azure command line tool.&lt;/p&gt;
-
-&lt;p&gt;You can download and install the command line tool by following the [instructions here](&lt;a href=&quot;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&quot; title=&quot;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&quot;&gt;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;Once you have that installed and working, we are ready to get started deploying the app.&lt;/p&gt;
-
-&lt;h3 id=&quot;create-a-deployment-user&quot;&gt;Create a deployment user&lt;/h3&gt;
-
-&lt;p&gt;This deployment user will be used when deploying your code. Basically we are going to configure the app to be deployed with git so when you do a &lt;code class=&quot;highlighter-rouge&quot;&gt;git push azure master&lt;/code&gt; it will ask you for the password that you set here.&lt;/p&gt;
-
-&lt;p&gt;Run this in the command line:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;az webapp deployment user set --user-name &amp;lt;username&amp;gt; --password &amp;lt;password&amp;gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;create-a-resource-group&quot;&gt;Create a resource group&lt;/h3&gt;
-
-&lt;p&gt;Resource groups are basically just a way to group together resources so you can easily monitor them together, track costs, and stuff.&lt;/p&gt;
-
-&lt;p&gt;Replace &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;my-resource-group&amp;gt;&lt;/code&gt; with a resource group name you want.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;az group create --name &amp;lt;my-resource-group&amp;gt; --location westeurope
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;create-a-service-plan&quot;&gt;Create a service plan&lt;/h3&gt;
-
-&lt;p&gt;This is where you will set the how many resources your app will use.&lt;/p&gt;
-
-&lt;p&gt;The command below will create a &lt;code class=&quot;highlighter-rouge&quot;&gt;FREE&lt;/code&gt; tier app that has about 1 GB of RAM. You could also set the &lt;code class=&quot;highlighter-rouge&quot;&gt;--sku&lt;/code&gt; tag to &lt;code class=&quot;highlighter-rouge&quot;&gt;BASIC&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;SHARED&lt;/code&gt; or any of the other [service plans here](&lt;a href=&quot;https://azure.microsoft.com/en-us/pricing/details/app-service/&quot; title=&quot;https://azure.microsoft.com/en-us/pricing/details/app-service/&quot;&gt;https://azure.microsoft.com/en-us/pricing/details/app-service/&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;Also be sure to set your &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;my-app-service-plan&amp;gt;&lt;/code&gt; and also make sure you set &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;my-resource-group&amp;gt;&lt;/code&gt; to your resource group name from earlier.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;az appservice plan create --name &amp;lt;my-app-service-plan&amp;gt; --resource-group &amp;lt;my-resource-group&amp;gt; --sku FREE
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;create-the-app&quot;&gt;Create the app&lt;/h3&gt;
-
-&lt;p&gt;Now we actually create the app, you have to give your app an &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;app-name&amp;gt;&lt;/code&gt; and then make sure you paste in all the other options from things you’ve created previously.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;az webapp create --name &amp;lt;app-name&amp;gt; --resource-group &amp;lt;my-resource-group&amp;gt; --plan &amp;lt;my-app-service-plan&amp;gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;configure-git-for-deployment&quot;&gt;Configure git for deployment&lt;/h3&gt;
-
-&lt;p&gt;This command sill set up you app to be deployed using git. The response you get from this command will be a git url you can use as the git remote to deploy.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;az webapp deployment source config-local-git --name &amp;lt;app-name&amp;gt; --resource-group &amp;lt;my-resource-group&amp;gt; --query url --output tsv
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;configure-startup-script&quot;&gt;Configure startup script&lt;/h3&gt;
-
-&lt;p&gt;If you are coding in ES6 you probably have a build step. For that you may want to set up a custom deploy script. [Here is the documentation for how to do that](&lt;a href=&quot;https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script&quot; title=&quot;https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script&quot;&gt;https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;However I’ve noticed a bug here. Sometimes the order of commands in the deploy script appears to not be honored. According to [this github issue](&lt;a href=&quot;https://github.com/projectkudu/kudu/issues/2699&quot; title=&quot;https://github.com/projectkudu/kudu/issues/2699&quot;&gt;https://github.com/projectkudu/kudu/issues/2699&lt;/a&gt;), it may be related to the Always On setting in your app. But regardless the app tries to start up before the my deploy script is finished, which means it tries to run code that isnt built from webpacker yet.&lt;/p&gt;
-
-&lt;p&gt;So, in an effort to find a quick fix I just committed my built files which sucks. I’m still trying to figure out a better workaround here because there hasn’t been a lot of movement on that particular github issue.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 14 Feb 2018 00:00:00 +0000</pubDate>
-        <link>/posts/deploying-a-node-js-app-on-azure-app-services</link>
-        <guid isPermaLink="true">/posts/deploying-a-node-js-app-on-azure-app-services</guid>
-        
-        <category>node</category>
-        
-        <category>azure</category>
-        
-        <category>production</category>
         
         
       </item>

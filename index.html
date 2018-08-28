@@ -85,6 +85,57 @@
     post-title-container-nohero
   ">
      <h1>
+          <a href="/posts/serverless-framework-s3-file-uploads" title="Serverless Framework S3 Permissions (Serverless IAM Permissions)">Serverless Framework S3 Permissions (Serverless IAM Permissions)</a>
+     </h1>
+     <div class="
+        post-meta-nohero
+      ">
+     </div>
+ </div>
+  <span class="published-at">Published Aug 28, 2018</span>
+  &#9642;
+  <span class="post-tags">
+        <a href="/tag/serverless">#serverless</a>
+        <a href="/tag/javascript">#javascript</a>
+        <a href="/tag/aws">#aws</a>
+  </span>
+      <a href="/posts/serverless-framework-s3-file-uploads" title="Serverless Framework S3 Permissions (Serverless IAM Permissions)"><img class="hero-image" src="" /></a>
+     <p>Its hard to find a good title for this. Usually you will never us a lambda function to upload to S3. For user submitted files, the right way to upload to S3 is generate a temporary signed upload URL and the user will submit directly to S3 without sending the file to the serverless function.
+<p>But I do a lot of PDF generation with one of my projects so I need to be able to put S3 objects from the serverless function, so I need a bit of setup to do that.
+<p>This really isn’t a complicated problem, but I want to document this for later.
+<p>I created a new bucket in S3.
+<p>Then the main thing is find the simplest way to grant the serverless project access to the S3 bucket.
+<p>According to <a href="https://serverless.com/framework/docs/providers/aws/guide/iam/" title="https://serverless.com/framework/docs/providers/aws/guide/iam/">this post</a> the serverless framework automatically creates a IAM user for the serverless project. There are ways to customize this, but I’m going to just grant that default IAM user access to S3 and then I should be good to go.
+<p>Luckily thats as easy as adding this to the <code class="highlighter-rouge">serverless.yml</code> file:
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre><td class="code"><pre>provider:
+  ...
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+       - "s3:PutObject"
+       - "s3:DeleteObject"
+      Resource: { "Fn::Join": ["", ["arn:aws:s3:::BUCKET_NAME", "/*" ] ] }
+</pre></table>
+</div>
+</div>
+<p><a href="https://stackoverflow.com/questions/46098173/how-to-add-iamrolestatements-to-s3-trigger-bucket-in-serverless-framework" title="https://stackoverflow.com/questions/46098173/how-to-add-iamrolestatements-to-s3-trigger-bucket-in-serverless-framework">This stackoverflow question</a> was helpful in figuring this out. Also it probably would help if I understood cloudformation and aws IAM users more.
+       <div class="readmore">
+          <a href="/posts/serverless-framework-s3-file-uploads" role="button">Read more</a>
+       <div>
+</article>
+ <hr>
+<article class="blog">
+ <div class="
+    post-title-container-nohero
+  ">
+     <h1>
           <a href="/posts/serverless-my-initial-setup-with-es6-testing-and-ci-deployment" title="Robust Serverless API Boilerplate with ES6, Folder Structure, Testing (Mocha + Chai), and ESLint">Robust Serverless API Boilerplate with ES6, Folder Structure, Testing (Mocha + Chai), and ESLint</a>
      </h1>
      <div class="
@@ -188,38 +239,6 @@
 <p>Today we’re going to use it to make a clean and powerful way to manage our socket.io events. Basically we want to subscribe to specific events and then dispatch specific redux actions anytime those events are broadcast to us from the socket.io server.
        <div class="readmore">
           <a href="/posts/using-socket-io-with-redux-websocket-redux-middleware" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
- <div class="
-    post-title-container-nohero
-  ">
-     <h1>
-          <a href="/posts/making-redux-middleware-for-websockets" title="Using Action Cable with Redux - Websocket Redux Middleware">Using Action Cable with Redux - Websocket Redux Middleware</a>
-     </h1>
-     <div class="
-        post-meta-nohero
-      ">
-     </div>
- </div>
-  <span class="published-at">Published Jul 25, 2018</span>
-  &#9642;
-  <span class="post-tags">
-        <a href="/tag/redux">#redux</a>
-        <a href="/tag/javascript">#javascript</a>
-        <a href="/tag/websockets">#websockets</a>
-        <a href="/tag/react">#react</a>
-        <a href="/tag/rails">#rails</a>
-        <a href="/tag/actioncable">#actioncable</a>
-  </span>
-      <a href="/posts/making-redux-middleware-for-websockets" title="Using Action Cable with Redux - Websocket Redux Middleware"><img class="hero-image" src="/uploads/2018/07/25/Action Cable.png" /></a>
-     <p>This article uses ActionCable as the websocket library. If you want to see a version of this article using socket.io, <a href="/posts/using-socket-io-with-redux-websocket-redux-middleware" title="/posts/using-socket-io-with-redux-websocket-redux-middleware">click here.</a>
-<hr />
-<p>Middleware is one of the most powerful and useful features of redux. If you’re unfamiliar with redux middleware, it is a way to insert extra behavior into dispatched redux actions.
-<p>Today we’re going to use it to make a clean and powerful way to manage our subscriptions to different Action Cable channels+rooms. This also means taking the data sent to use through action cable and dispatching the appropriate redux actions to mutate the state.
-       <div class="readmore">
-          <a href="/posts/making-redux-middleware-for-websockets" role="button">Read more</a>
        <div>
 </article>
 <nav class="pagination" role="navigation">
