@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Sep 2018 15:24:09 +0100</pubDate>
-    <lastBuildDate>Sun, 02 Sep 2018 15:24:09 +0100</lastBuildDate>
+    <pubDate>Sun, 02 Sep 2018 15:24:35 +0100</pubDate>
+    <lastBuildDate>Sun, 02 Sep 2018 15:24:35 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -39,7 +39,7 @@
     - Effect: &quot;Allow&quot;
       Action:
        - &quot;s3:*&quot;
-      Resource: { &quot;Fn::Join&quot;: [&quot;&quot;, [&quot;arn:aws:s3:::BUCKET_NAME&quot;, &quot;/*&quot; ] ] }
+      Resource: { &quot;Fn::Join&quot;: [&quot;&quot;, [&quot;arn:aws:s3:::pdf-shop-uploads&quot;, &quot;/*&quot; ] ] }
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
