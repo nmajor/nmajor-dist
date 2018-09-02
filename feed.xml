@@ -5,12 +5,12 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Sep 2018 15:38:25 +0100</pubDate>
-    <lastBuildDate>Sun, 02 Sep 2018 15:38:25 +0100</lastBuildDate>
+    <pubDate>Sun, 02 Sep 2018 15:38:55 +0100</pubDate>
+    <lastBuildDate>Sun, 02 Sep 2018 15:38:55 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
-        <title>Serverless Framework Executables with Webpack - AWS Lambda</title>
+        <title>Serverless Framework with Webpack - Executables - AWS Lambda</title>
         <description>&lt;p&gt;Many web apps rely on executable binaries to function. For example if you want to do any kind of image processing, usually, in addition to the actual libraries you are using usually you need an program like `imagemagick ` to make it actually work.&lt;/p&gt;
 
 &lt;p&gt;So, if you ever want to build a sophisticated web app with the serverless framework, you need to be able to upload and use executable binaries. And its best if you can upload them in such a way that the library knows how to find them without any extra configuration.&lt;/p&gt;
