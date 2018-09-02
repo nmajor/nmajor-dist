@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Sep 2018 15:24:35 +0100</pubDate>
-    <lastBuildDate>Sun, 02 Sep 2018 15:24:35 +0100</lastBuildDate>
+    <pubDate>Sun, 02 Sep 2018 15:28:10 +0100</pubDate>
+    <lastBuildDate>Sun, 02 Sep 2018 15:28:10 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -23,9 +23,11 @@
 
 &lt;p&gt;Then the main thing is find the simplest way to grant the serverless project access to the S3 bucket.&lt;/p&gt;
 
-&lt;p&gt;According to &lt;a href=&quot;https://serverless.com/framework/docs/providers/aws/guide/iam/&quot; title=&quot;https://serverless.com/framework/docs/providers/aws/guide/iam/&quot;&gt;this post&lt;/a&gt; the serverless framework automatically creates a IAM user for the serverless project. There are ways to customize this, but I’m going to just grant that default IAM user access to S3 and then I should be good to go.&lt;/p&gt;
+&lt;p&gt;In the past I’ve spent time creating new users and roles and connecting to aws services using the using the secret keys of the user. But one of the main benefits of serverless is the easy integration of other aws services.&lt;/p&gt;
 
-&lt;p&gt;Luckily thats as easy as adding this to the &lt;code class=&quot;highlighter-rouge&quot;&gt;serverless.yml&lt;/code&gt; file:&lt;/p&gt;
+&lt;p&gt;According to &lt;a href=&quot;https://serverless.com/framework/docs/providers/aws/guide/iam/&quot; title=&quot;https://serverless.com/framework/docs/providers/aws/guide/iam/&quot;&gt;this post&lt;/a&gt; the serverless framework automatically creates a IAM user for the serverless project. Of course there are ways to customize this access, but for my purposes its really easy to use the default user and role.&lt;/p&gt;
+
+&lt;p&gt;Then you can give the default user/role access to a service like S3 by simply adding this to the &lt;code class=&quot;highlighter-rouge&quot;&gt;serverless.yml&lt;/code&gt; file:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -39,10 +41,12 @@
     - Effect: &quot;Allow&quot;
       Action:
        - &quot;s3:*&quot;
-      Resource: { &quot;Fn::Join&quot;: [&quot;&quot;, [&quot;arn:aws:s3:::pdf-shop-uploads&quot;, &quot;/*&quot; ] ] }
+      Resource: { &quot;Fn::Join&quot;: [&quot;&quot;, [&quot;arn:aws:s3:::BUCKET_NAME&quot;, &quot;/*&quot; ] ] }
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;p&gt;Just be sure to replace &lt;code class=&quot;highlighter-rouge&quot;&gt;BUCKET_NAME&lt;/code&gt; with the name of your bucket. This gives the lambda function full access to this bucket.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/46098173/how-to-add-iamrolestatements-to-s3-trigger-bucket-in-serverless-framework&quot; title=&quot;https://stackoverflow.com/questions/46098173/how-to-add-iamrolestatements-to-s3-trigger-bucket-in-serverless-framework&quot;&gt;This stackoverflow question&lt;/a&gt; was helpful in figuring this out. Also it probably would help if I understood cloudformation and aws IAM users more.&lt;/p&gt;
 </description>
