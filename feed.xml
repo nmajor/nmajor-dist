@@ -5,12 +5,12 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Sep 2018 15:38:55 +0100</pubDate>
-    <lastBuildDate>Sun, 02 Sep 2018 15:38:55 +0100</lastBuildDate>
+    <pubDate>Mon, 03 Sep 2018 12:28:24 +0100</pubDate>
+    <lastBuildDate>Mon, 03 Sep 2018 12:28:24 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
-        <title>Serverless Framework with Webpack - Executables - AWS Lambda</title>
+        <title>Executable Binary Files with Serverless Framework and Webpack - AWS Lambda</title>
         <description>&lt;p&gt;Many web apps rely on executable binaries to function. For example if you want to do any kind of image processing, usually, in addition to the actual libraries you are using usually you need an program like `imagemagick ` to make it actually work.&lt;/p&gt;
 
 &lt;p&gt;So, if you ever want to build a sophisticated web app with the serverless framework, you need to be able to upload and use executable binaries. And its best if you can upload them in such a way that the library knows how to find them without any extra configuration.&lt;/p&gt;
@@ -125,6 +125,13 @@ module.exports = WebpackBinPermission;
 &lt;/div&gt;
 
 &lt;p&gt;As you can see, its pretty simple and all it does it changes the permissions of everything in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin&lt;/code&gt; folder to &lt;code class=&quot;highlighter-rouge&quot;&gt;755&lt;/code&gt;. And for me it works like a charm.&lt;/p&gt;
+
+&lt;p&gt;Put that plugin code in a new file called &lt;code class=&quot;highlighter-rouge&quot;&gt;webpack-bin-permissions.js&lt;/code&gt;.Then at the top of your webpack config file, import it like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;const WebpackBinPermission = require('webpack-bin-permissions')
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;p&gt;To then to use it, you just have to pair it with the &lt;a href=&quot;https://webpack.js.org/plugins/copy-webpack-plugin/&quot; title=&quot;https://webpack.js.org/plugins/copy-webpack-plugin/&quot;&gt;copy-webpack-plugin&lt;/a&gt; in your webpack config like this:&lt;/p&gt;
 
