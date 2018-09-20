@@ -1,0 +1,75 @@
+---
+baseurl: ''
+url: ''
+blog:
+  title: NMajor Blog
+  description: A blog filled with adventures in tech
+  logo_path: assets/img/dactl.svg
+  search_path: 
+  hero_layout: false
+  hero_placeholder: assets/img/generic_hero.jpg
+  excerpts: true
+  inline_footnotes: true
+  titles_only: false
+  font: '"Open Sans", "Helvetica Neue", sans-serif'
+  load_google_fonts: Open+Sans:400,400i,700,700i
+author:
+  fullname: Nicholas Major
+  rss: true
+  mail: nick@nmajor.com
+  twitter: _nmajor
+  github: nmajor
+  youtube: channel/UCV_jmt214-hitQUiczsYhsQ
+  stackoverflow: 
+  disqus: nmajor
+  google_analytics: UA-48130330-1
+  photo: "/uploads/me4.jpg"
+  linkedin: in/nmajor
+  blog: http://blog.nmajor.com
+  instagram: _nmajor
+plugins:
+- jekyll-paginate
+- jekyll-sitemap
+permalink: posts/:slug
+excerpt_separator: "<!–-break-–>"
+paginate: 10
+paginate_path: "/page-:num/"
+collections:
+  my_tags:
+    output: true
+    permalink: "/tag/:slug/"
+defaults:
+- scope:
+    path: ''
+    type: my_tags
+  values:
+    layout: blog-by-tag
+exclude:
+- README.md
+- README.html
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+sass:
+  sass_dir: _sass
+  style: compressed
+compress_html:
+  clippings: all
+  endings: all
+  comments:
+  - "<!-- "
+  - " -->"
+  blanklines: true
+  profile: false
+  ignore: 
+  envs:
+  - local
+timezone: Europe/London
