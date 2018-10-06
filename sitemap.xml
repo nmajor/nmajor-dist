@@ -33,9 +33,9 @@
   
     
     <url>
-      <loc>/posts/serverless-framework-executable-binaries-aws-lambda/</loc>
+      <loc>/posts/serverless-framework-s3-file-uploads/</loc>
       
-        <lastmod>2018-09-01T01:00:00+01:00</lastmod>
+        <lastmod>2018-09-13T01:00:00+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -48,9 +48,9 @@
   
     
     <url>
-      <loc>/posts/serverless-framework-s3-file-uploads/</loc>
+      <loc>/posts/serverless-framework-executable-binaries-aws-lambda/</loc>
       
-        <lastmod>2018-08-28T01:00:00+01:00</lastmod>
+        <lastmod>2018-09-01T01:00:00+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -233,7 +233,7 @@
     <url>
       <loc>/about/</loc>
       
-        <lastmod>2018-10-06T16:08:22+01:00</lastmod>
+        <lastmod>2018-10-06T16:08:54+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -248,7 +248,7 @@
     <url>
       <loc>/archive/</loc>
       
-        <lastmod>2018-10-06T16:08:22+01:00</lastmod>
+        <lastmod>2018-10-06T16:08:54+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -265,7 +265,7 @@
     <url>
       <loc>/config-forestryio.yml</loc>
       
-        <lastmod>2018-10-06T16:08:22+01:00</lastmod>
+        <lastmod>2018-10-06T16:08:54+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -282,7 +282,7 @@
     <url>
       <loc>/</loc>
       
-        <lastmod>2018-10-06T16:08:22+01:00</lastmod>
+        <lastmod>2018-10-06T16:08:54+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -318,7 +318,7 @@
     <url>
       <loc>/page-2/</loc>
       
-        <lastmod>2018-10-06T16:08:22+01:00</lastmod>
+        <lastmod>2018-10-06T16:08:54+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
