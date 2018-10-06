@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 Oct 2018 16:07:24 +0100</pubDate>
-    <lastBuildDate>Sat, 06 Oct 2018 16:07:24 +0100</lastBuildDate>
+    <pubDate>Sat, 06 Oct 2018 16:07:54 +0100</pubDate>
+    <lastBuildDate>Sat, 06 Oct 2018 16:07:54 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -472,7 +472,7 @@ export function tenantModel(name, schema, options) {
   &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/mongoose-multitenant&quot; title=&quot;https://www.npmjs.com/package/mongoose-multitenant&quot;&gt;https://www.npmjs.com/package/mongoose-multitenancy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 28 Sep 2018 01:00:00 +0100</pubDate>
+        <pubDate>Mon, 01 Oct 2018 13:12:59 +0100</pubDate>
         <link>/posts/multi-tenancy-with-expressmongoose</link>
         <guid isPermaLink="true">/posts/multi-tenancy-with-expressmongoose</guid>
         
