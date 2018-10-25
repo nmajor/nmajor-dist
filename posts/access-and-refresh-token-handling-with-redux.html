@@ -390,8 +390,8 @@ const store = createStore(
 51
 52
 53
-54</pre><td class="code"><pre>import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
-const refreshThreshold = (new Date().getTime() + 300000); // 5 minutes from now
+54
+55</pre><td class="code"><pre>import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
 
 export default function clientMiddleware(client) {
   return ({ dispatch, getState }) =&gt; next =&gt; (action) =&gt; {
@@ -414,6 +414,8 @@ export default function clientMiddleware(client) {
 
     let actionPromise = Promise.resolve();
     const { tokens } = getState().auth;
+
+    const refreshThreshold = (new Date().getTime() + 300000); // 5 minutes from now
 
     if (tokens.refresh_token &amp;&amp; refreshThreshold &gt; tokens.expires_at) {
       actionPromise = client.post('/my-server/renew', { data: { refresh_token: tokens.refresh_token } })

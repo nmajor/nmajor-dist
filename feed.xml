@@ -5,8 +5,8 @@
     <description>A blog filled with adventures in tech</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 Oct 2018 16:09:26 +0100</pubDate>
-    <lastBuildDate>Sat, 06 Oct 2018 16:09:26 +0100</lastBuildDate>
+    <pubDate>Thu, 25 Oct 2018 13:27:16 +0100</pubDate>
+    <lastBuildDate>Thu, 25 Oct 2018 13:27:16 +0100</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -2467,8 +2467,8 @@ const store = createStore(
 51
 52
 53
-54&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
-const refreshThreshold = (new Date().getTime() + 300000); // 5 minutes from now
+54
+55&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;import { SIGN_OUT, SET_TOKENS } from '../modules/auth';
 
 export default function clientMiddleware(client) {
   return ({ dispatch, getState }) =&amp;gt; next =&amp;gt; (action) =&amp;gt; {
@@ -2491,6 +2491,8 @@ export default function clientMiddleware(client) {
 
     let actionPromise = Promise.resolve();
     const { tokens } = getState().auth;
+
+    const refreshThreshold = (new Date().getTime() + 300000); // 5 minutes from now
 
     if (tokens.refresh_token &amp;amp;&amp;amp; refreshThreshold &amp;gt; tokens.expires_at) {
       actionPromise = client.post('/my-server/renew', { data: { refresh_token: tokens.refresh_token } })
